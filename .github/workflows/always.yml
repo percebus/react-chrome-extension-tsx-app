@@ -1,0 +1,102 @@
+name: Verification
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: ls
+        run: ls -la
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.X'
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm ci
+      - name: ls node_modules
+        run: ls -la ./node_modules
+      - name: npm audit
+        run: npm audit
+        continue-on-error: true # XXX?
+
+      - name: lint
+        run: npm run lint
+
+      - name: npm run dist
+      - name: dist.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+
+  builds:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    strategy:
+      max-parallel: 6
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        node: [16, 18]
+    runs-on: ${{ matrix.os }}
+    name: Build @ node:${{ matrix.node }}@${{ matrix.os }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm ci
+
+      - name: npm run dist
+      - name: dist.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+
+  codeQL:
+#   if: github.ref == 'refs/heads/main' # TODO?
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript', 'typescript']
+
+    name: 'CodeQL: ${{ matrix.language }}'
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: setup CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+    - name: dist.zip
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist
+
+    - name: CodeQL
+      uses: github/codeql-action/analyze@v2

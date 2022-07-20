@@ -1,0 +1,13 @@
+name: Pre-Submit Verification
+
+# "This run was triggered by the "push" event, which is unsupported. 
+#  Please ensure you are using the "pull_request" event for this workflow."
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  pull_request:
+    name: percebus
+    uses: percebus/github-workflows/.github/workflows/pull_request.yml@main

@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "permissions": ["storage", "activeTab", "scripting"],
   "background": {
-    "service_worker": "./background/service_worker.tsx",
+    "service_worker": "./background/service_worker.ts",
     "type": "module"
   },
   "action": {
