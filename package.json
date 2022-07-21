@@ -24,6 +24,7 @@
     "parcel:watch": "npm run parcel -- watch src/manifest.json --host localhost",
     "parcel:build": "npm run parcel -- build src/manifest.json",
     "dev": "npm run parcel:watch",
+    "predist": "rm -rf dist",
     "dist": "npm run parcel:build",
     "postdist": "npm run LICENSES"
   },
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
     "@parcel/babel-preset-env": "^2.6.2",
+    "@parcel/config-default": "^2.6.2",
     "@parcel/config-webextension": "^2.6.2",
     "@parcel/transformer-sass": "^2.6.2",
     "@testing-library/jest-dom": "^5.16.4",
