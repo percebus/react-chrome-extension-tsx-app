@@ -24,7 +24,12 @@
     "parcel:watch": "npm run parcel -- watch src/manifest.json --host localhost",
     "parcel:build": "npm run parcel -- build src/manifest.json",
     "dev": "npm run parcel:watch",
-    "predist": "rm -rf dist",
+    "rm:dist": "rm -rf dist",
+    "rm:parcel-cache": "rm -rf .parcel-cache",
+    "rm:node_modules": "rm -rf node_modules",
+    "rm:all": "npm run rm:dist && npm run rm:parcel-cache && npm run rm:node_modules",
+    "clean": "npm run rm:dist && npm run rm:parcel-cache",
+    "predist": "npm run clean",
     "dist": "npm run parcel:build",
     "postdist": "npm run LICENSES"
   },
