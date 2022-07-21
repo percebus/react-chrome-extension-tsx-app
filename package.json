@@ -16,16 +16,16 @@
     "lint:js": "npm run standard",
     "lint:ts": "npm run ts-standard",
     "lint": "npm run lint:js && npm run lint:ts",
-    "preparcel": "npm run lint",
+    "prejest:ci": "npm run lint",
+    "jest:ci": "jest --ci",
+    "test": "npm run jest:ci",
+    "preparcel": "npm test",
     "parcel": "parcel",
     "parcel:watch": "npm run parcel -- watch src/manifest.json --host localhost",
     "parcel:build": "npm run parcel -- build src/manifest.json",
     "dev": "npm run parcel:watch",
     "dist": "npm run parcel:build",
-    "postdist": "npm run LICENSES",
-    "prejest:ci": "npm run lint:ts",
-    "jest:ci": "jest --ci",
-    "test": "npm run jest:ci"
+    "postdist": "npm run LICENSES"
   },
   "standard": {
     "env": [
@@ -50,6 +50,7 @@
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "jest-extended": "^3.0.1",
+    "jest-junit": "^14.0.0",
     "parcel": "^2.6.2",
     "process": "^0.11.10",
     "standard": "latest",

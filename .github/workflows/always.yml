@@ -28,11 +28,18 @@ jobs:
         run: npm audit
         continue-on-error: true # XXX?
 
-      - name: lint
-        run: npm run lint
+      - name: npm test
+        run: npm test
+      - name: junit.xml
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Unit Tests
+          path: junit.xml
+          reporter: jest-junit
 
-      - name: npm run dist
-        run: npm run dist
+      - name: dist
+        run: parcel build src/manifest.json
       - name: dist.zip
         uses: actions/upload-artifact@v3
         with:
@@ -63,8 +70,15 @@ jobs:
       - name: npm install
         run: npm ci
 
-      - name: npm run dist
+      - name: dist
         run: npm run dist
+      - name: junit.xml
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Unit Tests
+          path: junit.xml
+          reporter: jest-junit
       - name: dist.zip
         uses: actions/upload-artifact@v3
         with:

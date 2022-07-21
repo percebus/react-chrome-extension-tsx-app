@@ -106,3 +106,5 @@ dist
 # Parcel
 .*cache/
 .parcel-cache/
+
+junit.xml
