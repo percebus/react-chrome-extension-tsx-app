@@ -37,6 +37,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
+    "@parcel/babel-preset-env": "^2.6.2",
     "@parcel/config-default": "^2.6.2",
     "@parcel/config-webextension": "^2.6.2",
     "@parcel/transformer-sass": "^2.6.2",
@@ -52,8 +53,10 @@
     "jest-extended": "^3.0.1",
     "jest-junit": "^14.0.0",
     "parcel": "^2.6.2",
+    "postcss": "^8.4.14",
     "process": "^0.11.10",
     "standard": "latest",
+    "tailwindcss": "^3.1.6",
     "ts-standard": "^11.0.0"
   },
   "dependencies": {
