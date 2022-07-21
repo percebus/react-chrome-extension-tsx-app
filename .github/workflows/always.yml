@@ -64,6 +64,7 @@ jobs:
         run: npm ci
 
       - name: npm run dist
+        run: npm run dist
       - name: dist.zip
         uses: actions/upload-artifact@v3
         with:
