@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="1.954">
+  <testsuite name="Hello World" errors="0" failures="0" skipped="0" timestamp="2022-07-22T15:11:32" time="0.854" tests="1">
+    <testcase classname="Hello World true is true" name="Hello World true is true" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="common" errors="0" failures="0" skipped="0" timestamp="2022-07-22T15:11:32" time="0.984" tests="1">
+    <testcase classname="common components Example renders &quot;re-usable&quot;" name="common components Example renders &quot;re-usable&quot;" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="popup" errors="0" failures="0" skipped="0" timestamp="2022-07-22T15:11:32" time="0.994" tests="1">
+    <testcase classname="popup App component renders &quot;pop-up&quot;" name="popup App component renders &quot;pop-up&quot;" time="0.022">
+    </testcase>
+  </testsuite>
+  <testsuite name="content" errors="0" failures="0" skipped="0" timestamp="2022-07-22T15:11:32" time="0.996" tests="1">
+    <testcase classname="content App component renders &quot;content&quot;" name="content App component renders &quot;content&quot;" time="0.022">
+    </testcase>
+  </testsuite>
+  <testsuite name="options" errors="0" failures="0" skipped="0" timestamp="2022-07-22T15:11:32" time="1.002" tests="1">
+    <testcase classname="options App component renders &quot;options&quot;" name="options App component renders &quot;options&quot;" time="0.027">
+    </testcase>
+  </testsuite>
+</testsuites>
