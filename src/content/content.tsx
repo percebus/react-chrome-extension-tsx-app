@@ -7,7 +7,7 @@ import App from './app/App'
 
 console.info('content/index')
 
-const divHTMLElement = document.createElement('div')
+const divHTMLElement = document.createElement('div') as HTMLElement
 divHTMLElement.id = 'react-chrome-extension-app-content'
 document.body.appendChild(divHTMLElement)
 

@@ -13,9 +13,10 @@
     "LICENSES": "npm run yarn:licenses:prod",
     "standard": "standard --fix *.js",
     "FIXME:ts-standard": "ts-standard --fix src/**/*.ts src/**/*.tsx __tests__/**/*.tsx",
+    "tsc": "tsc --noEmit",
     "lint:js": "npm run standard",
-    "lint:ts": "npm run ts-standard",
-    "lint": "npm run lint:js",
+    "lint:ts": "npm run tsc",
+    "lint": "npm run lint:js && npm run lint:ts",
     "prejest:ci": "npm run lint",
     "jest:ci": "jest --ci",
     "test": "npm run jest:ci",
@@ -61,7 +62,8 @@
     "process": "^0.11.10",
     "standard": "latest",
     "tailwindcss": "^3.1.6",
-    "ts-standard": "latest"
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.7.4"
   },
   "dependencies": {
     "lodash": "^4.17.21",
