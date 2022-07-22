@@ -2,7 +2,9 @@ module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    '<rootDir>/src/setupTests.ts'
+    // '@testing-library/react/cleanup-after-each', // TODO
+    '@testing-library/react/dont-cleanup-after-each', // XXX
+    '@testing-library/jest-dom/extend-expect'
   ],
   reporters: [
     'default',
