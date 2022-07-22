@@ -22,10 +22,10 @@
       ],
       "run_at": "document_idle",
       "css": [
-        "./content/index.scss"
+        "./content/content.scss"
       ],
       "js": [
-        "./content/index.tsx"
+        "./content/content.tsx"
       ]
     }
   ]
