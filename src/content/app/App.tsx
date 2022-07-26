@@ -4,7 +4,7 @@ import Example from '../../common/components/example/Example'
 
 function App () {
   return (
-    <div className='App'>
+    <div className='app' id='content-app'>
       content
       <Example />
     </div>

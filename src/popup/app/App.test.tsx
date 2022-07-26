@@ -4,7 +4,7 @@ import App from './App'
 
 describe('popup', () => {
   describe('App component', () => {
-    it('renders "pop-up"', () => {
+    it('renders "popup-app"', () => {
       render(<App />)
       const linkElement = screen.getByText(/pop-up/i)
       expect(linkElement).toBeInTheDocument()
